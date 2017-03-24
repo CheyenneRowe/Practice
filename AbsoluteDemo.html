@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+	body{
+		margin: 0px;
+		padding: 0px;
+	}
+		.parent{
+			width: 300px;
+			height: 200px;
+			border:1px solid blue;
+		}
+		.top{
+			width: 600px;
+			height: 600px;
+			border:1px solid black;
+		}
+		.child{
+			width: 80px;
+			height: 80px;
+			float: left;
+
+		}
+		.child:nth-child(odd){
+			background-color: #ccc;
+		}
+		.child:nth-child(even){
+			background-color: #cdd;
+		}
+		#absPos{
+			position: absolute;
+			top: 400px;
+			left: 400px;
+			background-color: #aaa;
+			border:1px dashed red;
+		}
+		#relPos{
+			position: relative;
+			top: 40px;
+			left: 40px;
+			/*background-color: blue;*/
+		}
+
+		#fixPos{
+			position: fixed;
+			top: 30px;
+			left: 40px;
+		}
+	</style>
+</head>
+<body>
+<!-- <div class="top" id="relPos"> -->
+		<div class="parent" id="relPos">
+			<div class="child" id="" >1</div>
+			<div class="child" id="fixPos">2</div>
+			<div class="child">3</div>
+			<div class="child">4</div>
+		</div>
+		<div class="parent">5</div>
+	<!-- </div> -->
+</body>
+</html>

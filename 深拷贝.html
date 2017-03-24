@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+function Copy(p, c) {
+      var c = c || {};
+      for (var i in p) {
+      　　if (typeof p[i] === 'object') {
+      　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+      　　　　　Copy(p[i], c[i]);
+      　　} else {
+      　　　　　c[i] = p[i];
+      　　}
+      }
+      return c;
+} 
+var a={};  
+  a.key2 = ['小辉','小辉'];
+  var b={};
+  b = Copy(a,b);        
+  b.key2.push("大辉");
+  alert(b.key2);    //小辉，小辉，大辉
+  alert(a.key2);    //小辉，小辉	</script>
+</body>
+</html>

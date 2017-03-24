@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	// var count = 0;
+	// var oldParseInt=parseInt;
+	// window.parseInt = function(){
+	// 	count++;
+	// 	return oldParseInt.apply(null,arguments);
+	// };
+
+	// parseInt("1233aa");
+	// parseInt("1233aa");
+	// parseInt("1233aa");
+	// parseInt("1233aa");
+	// alert(count);
+	function A(name,age){
+		this.name = name;
+		this.age = age;
+	}
+
+	A.prototype.say = function(arg) {
+		// body...
+		// alert(this.name);
+		alert(arg);
+	};
+
+	var a = new A("A",18);
+	a.say();
+
+	// var B = {name:"B"};
+	// var B = new Object();
+	// B.name = "b";
+	function B(bb){
+		this.name=bb;
+	}
+	var b= new B("b");
+	a.say.call(b,1);
+</script>
+</html> 

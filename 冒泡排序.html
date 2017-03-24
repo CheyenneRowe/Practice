@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>排序</title>
+</head>
+<body>
+<script type="text/javascript">
+	function bubbleSort(arr){
+		var count = arr.length;
+		for(let i = 0; i < count; i++ ){//比较count趟
+			for (let j = 0 ; j < count-i-1; j++) {
+				console.log("比较的是arr[j] arr[j+1]",arr[j]+" "+arr[j+1]);
+				if(arr[j]>arr[j+1]){
+					var temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+				console.log(arr);
+			}
+		}
+		console.log(arr);
+	}
+	var arr = [6,5,1,4,3,8];
+	bubbleSort(arr);
+</script>
+</body>
+</html>

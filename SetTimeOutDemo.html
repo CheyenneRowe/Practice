@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<style type="text/css">
+	#slideShow{
+		position: relative;
+		width: 200px;
+		height: 200px;
+		/*border: 1px solid red;*/
+		/*overflow: hidden;*/
+	}
+	#pre{
+		position: absolute;
+		left: 0px;top: 0px;
+	}
+</style>
+<body>
+	<ol id = "linklist">
+		<li><a href="">heldskdj skflo</a></li>
+		<li><a href="">itsfsdfsfsf</a></li>
+		<li><a href="">mefsfsfs</a></li>
+		<li><a href="">world</a></li>
+	</ol>
+	<div id="slideShow">
+		<img src="1.jpg" alt="" id ="pre"/>
+	</div>
+</body>
+<script type="text/javascript">
+var movement;
+	function moveElement(elementID,final_x,final_y,interval) {
+		if (!document.getElementById) return false;
+		if (!document.getElementById(elementID)) return false;
+		var elem = document.getElementById(elementID);
+		// if (elem.movement) {
+		// 	clearTimeout(elem.movement);
+		// }
+		
+		if (!elem.style.left) {
+			elem.style.left = "0px";
+		}
+		if (!elem.style.top) {
+			elem.style.top = "0px";
+		}
+		var xpos = parseInt(elem.style.left);
+		var ypos = parseInt(elem.style.top);
+		if (xpos == final_x && ypos == final_y) {
+			return true;
+		}
+		if (xpos < final_x) {
+			// var dist = Math.ceil((final_x - xpos)/10);
+			// xpos = xpos + dist;
+			xpos+=20;
+		}
+		if (xpos > final_x) {
+			// var dist = Math.ceil((xpos - final_x)/10);
+			// xpos = xpos - dist;
+			xpos-=20;
+		}
+		if (ypos < final_y) {
+			// var dist = Math.ceil((final_y - ypos)/10);
+			// ypos = ypos + dist;
+			ypos+=20;
+		}
+		if (ypos > final_y) {
+			// var dist = Math.ceil((ypos - final_y)/10);
+			// ypos = ypos - dist;
+			ypos-=20;
+		}
+		elem.style.left = xpos + "px";
+		elem.style.top = ypos + "px";
+
+		var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+		// elem.movement = setTimeout(repeat,interval);
+		if (movement) {
+			clearTimeout(movement);
+		}
+		movement = setTimeout(repeat,interval);
+	}
+	var pre = document.getElementById("pre");
+	var lists = document.getElementById("linklist").getElementsByTagName("a");
+	lists[0].onmouseover = function(){
+		moveElement("pre",-180,0,10);
+	}
+	lists[1].onmouseover = function(){
+		moveElement("pre",-370,0,10);
+	}
+	lists[2].onmouseover = function(){
+		moveElement("pre",-300,0,10);
+	}
+</script>
+</html>

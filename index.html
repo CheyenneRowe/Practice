@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		body {padding:0;margin: 0; text-align: center;}
+		.wrapper {margin:30px;width: 450px;border:1px solid red;}
+		.small-box {width: 50px;height: 50px;margin: 10px;background: #9cc;}
+		.middle-box {width: 100px;height: 100px;margin: 20px;background: #99c;}
+		.big-box {width: 120px;height: 120px;margin: 20px;background: #33e;}
+		.floatL {float: left;}
+		.floatR {float: right;}
+		.clear {clear: both;}
+		.posA {position: absolute;}
+		.overHid{overflow: hidden;}
+		.red {background: #f00;}
+		.green {background: #0f0;}
+		.blue {background: #00f;}
+	</style>
+</head>
+<body>
+	<div class="wrapper overHid">
+	    <div class="big-box">non-float</div>
+	    <div class="middle-box green floatL">float left</div>
+	    <div class="small-box red">non-clear</div>
+	</div>
+</body>
+</html>

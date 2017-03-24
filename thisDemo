@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var name = "window";
+	var object  = {
+		name: "my",
+		getName:function(){
+			return this.name;
+		}
+	};
+
+	console.log(object.getName = object.getName);//sidalee的书上有小笔记
+	// console.log(object.getName());
+	// (object.getName = object.getName)();
+	</script>
+</html>

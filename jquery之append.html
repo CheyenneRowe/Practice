@@ -1,0 +1,35 @@
+<html>
+<head>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+
+<body>
+<h1 id="h1">This is a heading</h1>
+<button class="btn11">detach暂时删除</button>
+<button class="btn22">detach重新append</button>
+<ul>
+<li>Apple</li>
+<li>IBM</li>
+<li>Microsoft</li>
+<li>Google</li>
+</ul>
+<button class="btn1">添加或移除列表项的类</button>
+</body>
+<script type="text/javascript">
+var div1 = $("<div style='background-color:red;'>hello</div>");
+	$("body").append(div1);
+var $ul;
+$(".btn11").on("click",function(e){
+	$ul = $("ul").detach();
+})
+$(".btn22").on("click",function(e){
+	$(".btn1").after($ul);
+	$("body").append($ul);
+
+})
+
+</script>
+</html>

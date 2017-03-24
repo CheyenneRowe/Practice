@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<h2>操作成功</h2>
+	<span id="time">5</span>秒后回到主页
+	<a href="#" id="back">返回</a>
+
+	<script type="text/javascript">
+
+		var now = 5;
+		var timeOut = function(){
+			if(now>1){
+				now--;
+				document.getElementById("time").innerHTML = now;
+			}else{
+				window.location.href = "http://www.baidu.com";
+			}
+		};
+		setInterval(timeOut,1000);
+		// document.getElementById("back").onclick=function(){
+		// 	window.history.back();
+		document.getElementById("back").href = "javascript:history.back()";
+// };
+	</script>
+</body>
+</html>

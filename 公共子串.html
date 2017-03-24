@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+function getCommonStr(str1,str2){
+	// var str1 = "abcde",
+	//     str2 = "abcgde";
+	var result = [];
+	// var arr1 = str1.split(""),
+	// 	arr2 = str2.split("");
+	var count = 0;
+	var begin1 = 0;//比较的元素所在str1的索引
+	for(begin1;begin1<str1.length;begin1++){//比较趟数
+		var begin2 = str2.indexOf(str1[begin1]);//str2找到该元素的索引
+		if(begin2==-1)  break;
+		count=1;
+		for(begin2;begin2<str2.length;begin2++){
+			if(begin1==str1.length-1||begin2==str2.length-1){
+				result.push(count);
+				break;
+			}
+			if(str1[begin1+1]!=str2[begin2+1]){
+				result.push(count);
+				count=0;
+				break;
+			}else{
+				count++;
+				begin1++;
+			}
+
+		}
+	}
+	var newres = result.sort();
+	alert(newres[newres.length-1]);
+}
+getCommonStr("ab c de","ab cgde");
+</script>
+</body>
+</html>

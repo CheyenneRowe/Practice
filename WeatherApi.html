@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+
+<title>Hello, World</title>  
+<style type="text/css">  
+html{height:100%}  
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%}  
+</style>  
+<!-- <script type="text/javascript" src="http://m.weather.com.cn/data/101110101.html">
+//v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"ni
+//v1.4版本及以前版本的引用方式：src="http://api.map.baidu.com/api?v=1.4&key=您的密钥&callback=initialize"
+</script> -->
+</head>  
+ 
+<body>  
+<div id="container"></div> 
+<script type="text/javascript"> 
+(function(){
+	var xhr = null;
+	if(window.XMLHttpRequest){
+		xhr = new XMLHttpRequest();
+	}else{
+		xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	var url = "file:///E:/workspace/MapApi.html";
+	// var url = "http://api.jirengu.com/weather.php";
+	xhr.open("GET",url,true);
+	xhr.send(null);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4 && xhr.status === 200){
+			alert(xhr.responseText);
+		}
+
+	};
+})();
+
+</script>  
+</body>  
+</html>

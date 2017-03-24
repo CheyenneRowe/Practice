@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="test-canvas" width="700" height="400">
+	</canvas>
+
+
+</body>
+<script type="text/javascript">
+	var canvas = document.getElementById('test-canvas'),
+	ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 200, 200); // 擦除(0,0)位置大小为200x200的矩形，擦除的意思是把该区域变为透明
+ctx.fillStyle = 'grey'; // 设置颜色
+ctx.fillRect(0, 0, 530, 530); // 把(10,10)位置大小为130x130的矩形涂色
+// 利用Path绘制复杂路径:
+var path=new Path2D();
+path.arc(175, 175, 50, 0, Math.PI*2, true);
+path.moveTo(210,175);
+path.arc(175, 175, 35, 0, Math.PI, false);
+path.moveTo(165, 165);
+path.arc(160, 165, 5, 0, Math.PI*2, true);
+path.moveTo(195, 165);
+path.arc(190, 165, 5, 0, Math.PI*2, true);
+ctx.strokeStyle = '#0000ff';
+ctx.stroke(path);
+</script>
+</html>

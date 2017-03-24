@@ -1,0 +1,121 @@
+<!-- 
+删除元素:找到该元素的父元素,removeChild(该元素)
+创建一个新元素,不经过setAttribute(),直接obj.onclick不能生效
+getElementsByTagName返回的并不是数组,所以不能使用数组一系列遍历的方法eg:filter/every等
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title> new document </title>  
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
+	<style type="text/css">
+		table{
+			border: 1px solid black;
+			padding: 0px;
+			margin:0px;
+			/*cellspacing:0px;
+			cellpadding:0px;*/
+			border-spacing: 1px;
+			border-collapse: collapse;
+		}
+	/*	tr:nth-child(odd){
+			background-color: grey;
+		}
+		tr:nth-child(even){
+			background-color: white;
+			
+		}*/
+	</style>
+
+</head> 
+<body> 
+	<table border="1" width="50%" id="table">
+		<tr>
+			<th>学号</th>
+			<th>姓名</th>
+			<th>操作</th>
+		</tr>  
+		<tr>
+			<td>xh001</td>
+			<td>王小明</td>
+			<td><a href="javascript:;" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+		</tr>
+		<tr>
+			<td>xh002</td>
+			<td>刘小芳</td>
+			<td><a href="javascript:;" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+		</tr>  
+	</table>
+	<input type="button" value="添加一行" id="btn" />   <!--在添加按钮上添加点击事件  -->
+
+	<script type="text/javascript"> 
+	window.onload = function(){
+
+		var tbod=document.getElementsByTagName("tr");
+		for(var i=0;i<tbod.length;i++){
+			if(tbod[i].nodeType===3 || i===0){
+				continue;
+			}
+			changeColor(tbod[i]);
+		}
+	};
+	  // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+	document.getElementById("btn").onclick=add;
+
+	function add(){
+	  	var newtr = document.createElement("tr");
+	  	var newtd1 = document.createElement("td");
+	  	newtd1.innerHTML="td1";
+	  	var newtd2 = document.createElement("td");
+	  	newtd2.innerHTML="td2";
+
+	  	var newtd3 = document.createElement("td");
+
+		var newa = document.createElement("a");
+		newa.setAttribute("href","javascript:void(0)");
+		newa.setAttribute("onclick","del(this)");
+		newa.innerHTML = "delete";
+	
+		newtd3.appendChild(newa);
+	
+		newtr.appendChild(newtd1);
+		newtr.appendChild(newtd2);
+		newtr.appendChild(newtd3);
+
+		var addrow = document.getElementsByTagName("tbody")[0].appendChild(newtr);
+		changeColor(newtr);
+		 // var addrow = document.getElementById("table").lastChild;
+		}
+
+	 // 创建删除函数
+	 var arra = document.getElementsByTagName("a");
+	 for (var i = arra.length - 1; i >= 0; i--) {
+		arra[i].onclick = function(){
+			del(this);
+		};
+	 }
+	//  arra.filter(function(item){
+	//  	arra[i].onclick = function(){
+	//  		del(this);
+	// };
+	// }); 
+	function del(obj){
+		var par = obj.parentNode.parentNode;
+		par.parentNode.removeChild(par);
+	}
+
+
+
+
+function changeColor(obj){
+	obj.onmouseover=function(){
+		this.style.backgroundColor="#f2f2f2";
+	}; 
+	obj.onmouseout=function(){
+		this.style.backgroundColor="white";
+	}; 
+}
+</script> 
+
+</body>
+</html>

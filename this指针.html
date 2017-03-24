@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+</body>
+<script type="text/javascript" charset="utf-8">
+    // "use strict";
+        // var z = 10;
+        // function foo(){
+        //     console.log("this",this);
+        //         console.log(z);
+        // }
+        // (function(funArg){
+        //         var z = 20;
+        //         funArg();
+        // })(foo);
+//---------------------------------------------------------------
+// var z = 10;
+// function foo(){
+//     console.log("this",this);
+//     console.log(z);
+// }
+// function aa(func){
+//     console.log("this",this);
+//     var z = 20;
+//     func();
+// }
+// aa(foo);
+//---------------------------------------------------------------
+// "use strict";
+// var z = 10;
+// var obj = {};
+// function aa(func){
+//     console.log("this",this);//obj
+//     console.log("this.z1",this.z);//zz
+//     var z = 20;
+//     foo();
+
+//     function foo(){
+//         console.log("this",this);//严格模式下undefined 非严格window
+//         console.log("this.z2",this.z);//严格模式下can't read property "z" of undefined  非严格10
+//         console.log("z",z);//20
+//     }
+// }
+// obj.z = "zz";
+// obj.func = aa;
+// obj.func();
+//-----------------------------------------------
+　function f1(){
+　　　　var n=999;
+　　　　nAdd=function(){n+=1}
+　　　　function f2(){
+　　　　　　alert(n);
+　　　　}
+　　　　return f2;
+　　}
+　　var result=f1();//999
+　　result(); // 999 
+　　nAdd();
+    result();
+ // 1000
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>operaLogo</title>
+	
+</head>
+<body>
+	<script type="text/javascript">
+
+		function normalize(arr) {
+			var newarr= arr.map(function(x){
+				var news="";
+				for(let i=0;i<x.length;i++){
+					if(i===0){
+						news+= x[0].toUpperCase();
+					}else{
+						news+=x[i].toLowerCase();
+					}
+				}
+				return news;
+			});
+			return newarr;
+
+		}
+
+// 测试:
+if (normalize(['adam', 'LISA', 'barT']).toString() === ['Adam', 'Lisa', 'Bart'].toString()) {
+	alert('测试通过!');
+}
+else {
+	alert('测试失败!');
+}
+</script>
+</body>
+
+</html>

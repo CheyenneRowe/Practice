@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var func = (function f(num){
+		if(num<=1){
+			return 1;
+		}else{
+			return num*f(num-1);
+		}
+
+	});
+	alert("func(5)="+func(5));
+
+	var newfunc = func;
+	func = null;
+	
+	alert("newfunc(5)="+newfunc(5));
+
+</script>
+</body>
+</html>

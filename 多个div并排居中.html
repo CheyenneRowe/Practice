@@ -1,0 +1,52 @@
+<!-- 重点是:
+1.多个并排的子元素display要设置成inline-block（display默认为block，要并排显示只能设置float为left，这种情况下text-align无效）
+2.父元素的text-align设置成center；
+
+3.使用inline-block元素之间会存在间隙，这是由于元素标签间回车导致的，要消除间隙可以：
+	1）父元素font-size设置为0；也就是回车的那个字符大小为0，因此不可见
+	2）删除回车
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<style>
+		.parent {
+			width: 980px;
+			height: 250px;
+			margin: 0 auto;
+			text-align: center;
+			/*background-color: #999;*/
+			position: relative;
+			/*font-size: 0px;*/
+		}
+		.children {
+			/*position: absolute;*/
+			display: inline-block;
+
+			width: 100px;
+		}
+		.w1{
+			height: 250px;
+		}
+		.w2{
+			height: 200px;
+		}
+
+		/**+ html .children {
+			display: inline;
+			zoom: 1;
+		}
+		* html .children {
+			display: inline;
+			zoom: 1;
+		}*/
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="children w1"style="background-color:green;"></div><div class="children w2"style="background-color:red;"></div>
+	</div>
+</body>
+</html>

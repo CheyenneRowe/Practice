@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<ul id="con">
+<li id="lesson1">javascript
+  <ul> 
+      <li id="tcon"> 基础语法</li>
+      <li>流程控制语句</li>
+      <li>函数</li>
+      <li>事件</li>
+      <li>DOM</li>
+  </ul>
+</li>
+<li id="lesson2">das</li>
+<li id="lesson3">dadf</li>
+<li id="lesson4">HTML/CSS 
+  <ul>
+    <li>文字</li>
+    <li>段落</li>
+    <li>表单</li>
+    <li>表格</li>  
+  </ul> 
+</li></ul>  
+<a href="JumpNew.html">跳转新页面</a>
+<script  type="text/javascript">    
+   var mylist = document.getElementById("tcon"); 
+   var par = mylist.parentNode.parentNode.parentNode.lastChild;
+   // var arr = par.childNodes[0].childNodes;
+   // for (var i = arr.length - 1; i >= 0; i--) {
+   // 	alert(arr[i].innerHTML);
+   // }
+   // alert(par.innerHTML);
+   // var ull=par.getElementsByTagName("li");
+   // alert(ull[0].innerHTML);
+  var z=par.childNodes[1].childNodes;
+  for (var i = z.length - 1; i >= 0; i--) {
+  	if(z[i].nodeType==3){
+  		
+  		continue;
+  	}else{
+  		// alert(z[i].firstChild.nodeValue);
+  	}
+  }
+
+  function getPreNode(node){
+  	var x = node.previousSibling;
+  	while(x &&x.nodeType!=1){
+  		x=x.previousSibling;
+  	}
+  	return x;
+
+  }
+</script> 
+
+</body>
+</html>
